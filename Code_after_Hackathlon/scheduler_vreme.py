@@ -42,6 +42,11 @@ def vreme(): #actiune in functie de vreme
             mu.usaGaraj() #deschide usa
         if stare_ventilator == 0:
             vent.selectState() #porneste ventilatorul
+
+    stare_usa = open("/home/eduardPi/Desktop/Programe licenta/Usi/garaj.txt").read()
+    stare_ventilator = pd.read_excel("static/vent.xlsx")
+    stare_ventilator = stare_ventilator["State"][0]
+
     if caldura > 24:
         print("Vreme calduroasa")
         if stare_ventilator == 1:
