@@ -34,15 +34,14 @@ def vreme(): #actiune in functie de vreme
         print("Vreme ploioasa")
         if stare_usa == 1:
             mu.usaGaraj() #inchide usa
-        if stare_ventilator == 0:
+        if stare_ventilator == 1:
             vent.selectState() #opreste ventilatorul
     else:
         print("Vreme insorita")
         if stare_usa == 0:
             mu.usaGaraj() #deschide usa
-        if stare_ventilator == 1:
+        if stare_ventilator == 0:
             vent.selectState() #porneste ventilatorul
-
     if caldura > 24:
         print("Vreme calduroasa")
         if stare_ventilator == 1:
@@ -51,7 +50,7 @@ def vreme(): #actiune in functie de vreme
             mi.stareIncazlire() #opreste caldura
     else:
         print("Vreme friguroasa")
-        if stare_ventilator == 0  and humidity < 80:
+        if stare_ventilator == 0:
             vent.selectState() #opreste ventilatorul
         if stare_incalzire["Status"][0] == 0:
             mi.stareIncazlire() #porneste caldura
